@@ -46,4 +46,21 @@ bst_t *bst_insert(bst_t **tree, int value);
 bst_t *bst_search(const bst_t *tree, int value);
 avl_t *avl_insert(avl_t **tree, int value);
 bst_t *array_to_bst(int *array, size_t size);
+void print_levelorder(const binary_tree_t *root, void (*func)(int));
+void print_current_level(const binary_tree_t *root, size_t level, void (*func)(int));
+int binary_tree_is_leaf(const binary_tree_t *node);
+void binary_tree_preorder(const binary_tree_t *tree, void (*func)(int));
+void binary_tree_postorder(const binary_tree_t *tree, void (*func)(int));
+size_t binary_tree_depth(const binary_tree_t *tree);
+size_t binary_tree_leaves(const binary_tree_t *tree);
+int binary_tree_balance(const binary_tree_t *tree);
+int binary_tree_is_perfect(const binary_tree_t *tree);
+binary_tree_t *binary_tree_uncle(binary_tree_t *node);
+void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
+binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree);
+int binary_tree_is_bst(const binary_tree_t *tree);
+int is_BST(const binary_tree_t *tree, int min, int max);
+bst_t *bst_insert(bst_t **tree, int value);
+bst_t *bst_remove(bst_t *root, int value);
+
 #endif /* _BINARY_TREES_H_ */
