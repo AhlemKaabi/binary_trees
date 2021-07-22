@@ -27,17 +27,20 @@ int binary_tree_balance(const binary_tree_t *tree)
 {
 	/*Balance Factor = height(left-child) - height(right-child)*/
 
-	int balance = 0, hl = 0, hr = 0;
+	int hl = 0, hr = 0;
 
 	if (tree == NULL)
 	{
 		return (0);
 	}
+	if (tree->left)
+	{
+		hl = binary_tree_height(tree->left);
+	}
 
-	hl = binary_tree_height(tree->left);
-	hr = binary_tree_height(tree->right);
-
-	balance = hl - hr;
-
-	return (balance);
+	if (tree->right)
+	{
+		hr = binary_tree_height(tree->right);
+	}
+	return (hl - hr);
 }
