@@ -47,5 +47,11 @@ int binary_tree_is_bst(const binary_tree_t *tree)
 	 * - There must be no duplicate values
 	 */
 	int INT_MIN = -2147483648, INT_MAX = 2147483647;
+
+	if (tree == NULL)
+	{
+		return (0);
+	}
+
 	return (is_BST(tree, INT_MIN, INT_MAX));
 }
