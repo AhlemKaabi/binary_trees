@@ -27,6 +27,10 @@ size_t find_a_depth(const binary_tree_t *node)
  */
 int is_perfect_recursive(const binary_tree_t *node, size_t depth, size_t level)
 {
+	if (node == NULL)
+	{
+		return (0);
+	}
 	/**
 	 * If leaf node, then its depth must be same as
      * depth of all other leaves.
