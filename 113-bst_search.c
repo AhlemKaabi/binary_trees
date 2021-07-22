@@ -14,7 +14,7 @@ bst_t *bst_search(const bst_t *tree, int value)
 	{
 		return (NULL);
 	}
-	current = *tree;
+	current = (bst_t *)tree;
 	while (current)
 	{
 		if (current->n == value)
@@ -23,7 +23,7 @@ bst_t *bst_search(const bst_t *tree, int value)
 		}
 		else if (current->n > value)
 		{
-			current = current->left
+			current = current->left;
 		}
 		else
 		{
