@@ -46,5 +46,6 @@ int binary_tree_is_bst(const binary_tree_t *tree)
 	 * - The left and right subtree each must also be a binary search tree
 	 * - There must be no duplicate values
 	 */
+	int INT_MIN = -2147483648, INT_MAX = 2147483647;
 	return (is_BST(tree, INT_MIN, INT_MAX));
 }
