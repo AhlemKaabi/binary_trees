@@ -13,7 +13,6 @@ bst_t *minValue(bst_t *node)
 		current = current->left;
 	return (current);
 }
-
 /**
  * bst_remove - function that removes a node from a Binary Search Tree.
  * @root: pointer to the root node of the tree where you will remove a node.
@@ -23,7 +22,7 @@ bst_t *minValue(bst_t *node)
  */
 bst_t *bst_remove(bst_t *root, int value)
 {
-	bst_t *temp;
+	bst_t *temp = NULL;
 
 	if (root == NULL)
 		return (root); /*base case*/
@@ -32,14 +31,14 @@ bst_t *bst_remove(bst_t *root, int value)
 	 * value, then it lies in left subtree
 	 */
 	if (value < root->n)
-		root->left = deleteNode(root->left, value);
+		root->left = bst_remove(root->left, value);
 	/**
 	 * If the value to be deleted
 	 * is greater than the root's
 	 * value, then it lies in right subtree
 	 */
 	else if (value > root->n)
-		root->right = deleteNode(root->right, value);
+		root->right = bst_remove(root->right, value);
 	/*If key is same as root's value, then This is the node to be deleted*/
 	else
 	{/* node with only one child or no child*/
@@ -56,11 +55,11 @@ bst_t *bst_remove(bst_t *root, int value)
 			return (temp);
 		}
 		/*node with two children: Get the inorder successor*/
-		temp = minValueNode(root->right);
+		temp = minValue(root->right);
 		/*Copy the inorder successor's content to this node */
 		root->n = temp->n;
 		/*Delete the inorder successor*/
-		root->right = deleteNode(root->right, temp->n);
+		root->right = bst_remove(root->right, temp->n);
 	}
 	return (root);
 }
